@@ -7,7 +7,7 @@ var authRouter = require('./routes/regAuth');
 let mongoose = require("mongoose");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/loginAuth');
+var googleAuth = require('./routes/appAuth');
 let cors = require('cors');
 
 mongoose.connect(
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/register',authRouter);
-app.use('/login', loginRouter);
+app.use('/google-auth',googleAuth);
 app.use('/users', usersRouter);
 
 
